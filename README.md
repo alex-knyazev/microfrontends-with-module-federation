@@ -2,6 +2,8 @@
 
 This repo demonstrates such webpack feature as [Module Federation](https://webpack.js.org/concepts/module-federation/) in specific case.
 
+See a lot of useful examples at https://github.com/module-federation/module-federation-examples.
+
 ## How to run
 
 1. Go to old-frontend, run:
@@ -18,13 +20,27 @@ App should be served on localhost:3000.
 
 ```
 npm install
+```
+
+To run Next.js provided Node.js server and serve pages with SSR:
+
+```
 npm run build
 npm start
 ```
 
-App should be started on localhost:3001.
+Open http://localhost:3001.
 
-Open http://localhost:3001, here you see Header and Footer from Old Frontend and Content rendered by Next.js.
+To generate static sources and serve them using simple static server:
+
+```
+npm run build-static
+npm run serve-static
+```
+
+Open URL which is shown in terminal.
+
+On the page you see Header and Footer from Old Frontend and Content rendered by Next.js.
 
 ## Details
 
@@ -36,5 +52,6 @@ There are two applications:
 
 Next frontend app uses client-side dynamic imports to get modules from Old Frontend. So it works like this:
 
-- When you request a page, Next.js makes SSR only for page Content. There are just empty blocks nn place of Header and Footer at this moment.
-- When HTML page is processing on client side, Webpack provided code makes an HTTP request to `localhost:3000` to get exposed from Old Frontend modules. When the request is completed - Header and Footer are rendered.
+1. When you request a page, Next.js makes SSR only for page Content. There are just empty blocks on place of Header and Footer at this moment. If you use static sites generation, page is rendered once on build stage, not on every request.
+
+2. When HTML page is processing on client side, Webpack provided code makes an HTTP request to `localhost:3000` to get exposed from Old Frontend modules. When the request is completed - Header and Footer are rendered.
