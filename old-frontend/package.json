@@ -1,0 +1,21 @@
+{
+  "name": "old-frontend",
+  "version": "1.0.0",
+  "description": "example of frontend with some modules that should be exposed to new \"next-frontend\" app",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx webpack --mode=production",
+    "dev": "npx webpack --mode=development --watch",
+    "serve": "npx serve dist/"
+  },
+  "author": "alexander.knyazev@progforce.com",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "serve": "^14.0.1"
+  }
+}
